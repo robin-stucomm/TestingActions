@@ -34,6 +34,12 @@ jobs:
 
       - name: Attempt to run Swagger upload
         run: |
-          pushd swagger
-          ./upload.sh
-          popd
+          swagger=("private" "public")
+          projectVersion=V1.1.1
+          echo "Generating the public swagger definition"
+          echo "Generating the private swagger definition"
+          echo "Uploading versions: $projectVersion"
+          for job in "${swagger[@]}"; do
+            tag="swagger-$job:$projectVersion"
+            echo "Do tag: $tag"
+          done
