@@ -33,6 +33,7 @@ jobs:
           echo test, and deploy your project.
 
       - name: Attempt to run Swagger upload
-        run: pushd swagger/ && \
-          ./upload.sh &&
+        run: |
+          pushd swagger
+          ./upload.sh
           popd
